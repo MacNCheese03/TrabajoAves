@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuadrícula Adaptativa</title>
+    <title>Pajaritos Loquitos</title>
     <style>
         * {
             margin: 0;
@@ -54,8 +54,7 @@
         .grid-item {
             background: white;
             border-radius: 8px;
-            padding: 2rem;
-            display: flex;
+            padding: 1rem;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
@@ -102,7 +101,7 @@
     </div>
 
     <footer>
-        <p>Creado por <strong>Tu Nombre</strong> &copy; 2025</p>
+        <p>Creado por <strong>Mac Torres R</strong> &copy; 2025</p>
     </footer>
 
     <script>
@@ -117,7 +116,16 @@
                 console.log(data);
 
                 data.forEach((a)=>{
-                    grid.innerHTML += `<div class="grid-item"><img src="${a.image.url.replace("http://www.buscaves.cl/","https://buscaves.cl/")}"/></div>`
+                    if(a.info.dimorfism.value == "No"){
+                       if(a.info.migration.value == "Sí"){
+                           if(a.info.species.value == "Nativa" || a.info.species.value == "Endemica de Chile"){
+                              grid.innerHTML += `<div class="grid-item"><img src="${a.image.url.replace("http://www.buscaves.cl/","https://buscaves.cl/")}"/><p>${a.names.spanish}</p><small>${a.names.latin}</small></div>` 
+                           }
+                         
+                     }   
+                    }
+                        
+                    
                 })
                 
             }
